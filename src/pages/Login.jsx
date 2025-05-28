@@ -17,25 +17,35 @@ function Login() {
     axios
       .get(`https://682199fa259dad2655afc100.mockapi.io/users?email=${email}`)
       .then((res) => {
+
         if(res.data[0].password != password || res.data[0].email != email){
-          throw new Error("aa")
+          throw new Error("error")
         }
-        console.log(res.data[0]);
-        localStorage.setItem("username", res.data[0].username);
+
+        console.log(res.data[0])
+
+        localStorage.setItem("username", res.data[0].username)
+
         Swal.fire({
           title: "logged in successfully",
           icon: "success",
         })
+
         redirectPath()
+
       })
       .catch((err) => {
+
         Swal.fire({
           icon: "error",
           title: "invalid email or password",
-        });
-        console.log(err);
-      });
-  };
+
+        })
+
+        console.log(err)
+
+      })
+  }
 
   return (
     <div>

@@ -15,7 +15,7 @@ function Home() {
 
 
 
-  // check post
+  // post a new charachter
   const check_data = () => {
 
     // check login status
@@ -52,6 +52,7 @@ function Home() {
     });
   };
 
+  // search all posts
   const Search = () => {
     if (searchName == "") {
       setSearchList(item);
@@ -85,6 +86,7 @@ function Home() {
   }, []);
 
 
+  // delete charachter
   const deleteItem = (id) => {
     axios
       .delete(`https://682199fa259dad2655afc100.mockapi.io/characters2/${id}`)

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router";
@@ -10,8 +10,16 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("") 
+  const [passwordConfirm, setPasswordConfirm] = useState("")
 
+  const [users, setUsers] = useState("")
+
+  useEffect(() => {
+    axios.get("https://682199fa259dad2655afc100.mockapi.io/users")
+      .then(res => {
+        setUsers(res.data)
+      })
+  }, [])
 
   let navigate = useNavigate();
 
@@ -66,10 +74,18 @@ function Signup() {
   }
 
 
-  // set user data
-  localStorage.setItem("username", username)
-  localStorage.setItem("password", password)
-  localStorage.setItem("email", email)
+  // check if user exists
+  const checkUser = users.find((user) => {
+    return user.username == username || user.email == email
+  })
+
+  if(checkUser){
+    Swal.fire({
+        icon: "error",
+        title: "user already exits",
+      });
+    return
+  }
 
   axios({
       method: "post",
