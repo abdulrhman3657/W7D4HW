@@ -103,7 +103,7 @@ function Home() {
 
       <div className="lg:flex justify-around items-center lg:w-full">
         <div className="flex flex-col gap-3 mt-3 lg:flex-row lg:items-center lg:justify-around w-full  justify-around">
-          <div className="flex  gap-2 p-3">
+          <div className="flex gap-2 p-3 bg-gray-300 rounded-2xl">
             <input
               type="text"
               className="bg-gray-50 border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
@@ -118,7 +118,7 @@ function Home() {
               Search
             </button>
           </div>
-          <div className="flex flex-col gap-2 p-3">
+          <div className="flex flex-col gap-2 p-3 bg-gray-200 rounded-2xl">
             <h1 className="text-xl font-bold leading-tight tracking-tight">
               Add new character
             </h1>
