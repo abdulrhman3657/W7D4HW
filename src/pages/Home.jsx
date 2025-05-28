@@ -180,13 +180,13 @@ function Home() {
       <div className="lg:w-9/10">
         <ul className="p-5 flex flex-wrap justify-center  gap-3">
           {searchList.map((element, index) => (
-            <li key={index}>
-              <div className=" flex flex-col justify-around   w-[35vh] p-3 rounded bg-white  hover:translate-1 transition delay-50 shadow-2xl">
+            <li className="rounded-2xl" key={index}>
+              <div className=" flex flex-col justify-around w-[35vh] bg-white pt-2  hover:translate-1 transition delay-50 shadow-2xl">
                 <div className="flex flex-col gap-5">
-                  <p className="text-center">{element.name}</p>
-                  <p className="text-center">{element.gender}</p>
-                  <p className="text-center">by:{element.username}</p>
-                  <img className="rounded-xl" src={element.image} alt="" />
+                  <p className="text-center font-bold">{element.name}</p>
+                  <p className={(element.gender == "Female" ) ? "text-center text-red-500" : "text-center text-blue-500"}>{element.gender}</p>
+                  <p className="text-center text-gray-500">@{element.username}</p>
+                  <img className="" src={element.image} alt="" />
                   <button
                     className={(element.username == username) ? "rounded text-white bg-red-500 hover:bg-red-900 px-1 text-center" : "hidden"}
                     onClick={() => deleteItem(element.id)}
