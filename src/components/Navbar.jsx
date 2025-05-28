@@ -1,10 +1,6 @@
 import { Link } from "react-router";
-import { useState } from "react";
 
 function Navbar() {
-  const [mbileMenue, setMobileMenue] = useState(false);
-
-  console.log(mbileMenue);
 
   return (
     <div className="">
